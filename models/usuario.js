@@ -8,8 +8,10 @@
     var Schema = mongoose.Schema;
 
 
-    //Creamos una serie de roles los cuales si no se ingresa en el post un tipo de valor de ese estilo no va
-    //a poder ser creado el usuario
+    //Creamos una serie de roles los cuales si no se ingresa en el post un tipo de 
+    //valor de ese estilo no va
+    //a poder ser creado el usuario, esto se logra cn la palabra enum que 
+    //esta dentro del schema en la variable rl
     var rolesValidos = {
         values: ['ADMIN_ROLE', 'USER_ROLE'],
         message: '{VALUE} no es un rol Permitido'
@@ -25,5 +27,5 @@
 
     });
 
-    usuarioSchema.plugin(uniqueValidator, { message: 'Error en el campo : {PATH}  El correo debe ser unico' });
+    usuarioSchema.plugin(uniqueValidator, { message: 'Error en el campo : {PATH} debe ser unico' });
     module.exports = mongoose.model('Usuario', usuarioSchema);

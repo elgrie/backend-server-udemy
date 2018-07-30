@@ -2,15 +2,11 @@
 var jwt = require('jsonwebtoken')
     //importamos la semilla que se encunetra en config
 var SEED = require('../config/config').SEED;
-
-
 //=============================================
 //Obtener Token
 //=============================================
-
 //exportamos la funcion en princiopio a usuario.js
 exports.verificaToken = function(req, res, next) {
-
     //para lleer el token creamos la siguiente variable
     var token = req.query.token;
     jwt.verify(token, SEED, (err, decoded) => {
@@ -22,8 +18,7 @@ exports.verificaToken = function(req, res, next) {
                 errors: err
             })
         }
-
-        // req.usuario = decoded.usuario;
+        req.usuario = decoded.usuario;
 
         /* res.status(201).json({
                  ok: true,

@@ -6,8 +6,11 @@ var mongoose = require('mongoose');
 var appRoutes = require('./rutas/app');
 var usuarioRoutes = require('./rutas/usuario');
 var loginRoutes = require('./rutas/login');
-
-
+var hospitalRoutes = require('./rutas/hospital');
+var medicoRoutes = require('./rutas/medico');
+var busquedaRoutes = require('./rutas/busqueda');
+var uploadRoutes = require('./rutas/upload');
+var imagenesRoutes = require('./rutas/imagenes');
 //Inicializar variables
 
 var app = express();
@@ -35,7 +38,12 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) =
 //importar rutas
 //estos son midelware
 app.use('/usuario', usuarioRoutes);
+app.use('/img', imagenesRoutes);
+app.use('/hospital', hospitalRoutes);
 app.use('/login', loginRoutes);
+app.use('/medico', medicoRoutes);
+app.use('/busqueda', busquedaRoutes);
+app.use('/upload', uploadRoutes);
 app.use('/', appRoutes);
 
 
