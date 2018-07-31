@@ -23,8 +23,8 @@
         email: { type: String, unique: true, required: [true, 'El correo es necesario'] },
         password: { type: String, required: [true, 'La contrasena es necesaria'] },
         img: { type: String, required: false },
-        role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos }
-
+        role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos },
+        google: { type: Boolean, default: false }
     });
 
     usuarioSchema.plugin(uniqueValidator, { message: 'Error en el campo : {PATH} debe ser unico' });
